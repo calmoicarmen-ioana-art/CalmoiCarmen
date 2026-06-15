@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ro">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Ocazii Speciale</title>
+
+<link rel="stylesheet" href="../css/style.css">
+
+</head>
+<div id="lightbox" class="lightbox">
+    <span class="close">&times;</span>
+    <img id="lightbox-img" src="" alt="">
+</div>
+
+<script>
+const images = document.querySelectorAll('.reco-images img');
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+const closeBtn = document.querySelector('.close');
+
+images.forEach(img => {
+    img.addEventListener('click', () => {
+        lightbox.style.display = 'flex';
+        lightboxImg.src = img.src;
+    });
+});
+
+closeBtn.addEventListener('click', () => {
+    lightbox.style.display = 'none';
+});
+
+lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) {
+        lightbox.style.display = 'none';
+    }
+});
+</script>
+
+<body>
+
+<header>
+
+    <a href="index.html">
+        <img src="../assets/logo.png" class="logo" alt="Logo Flora Elegance">
+    </a>
+
+    <nav>
+        <ul>
+
+            <li>
+                <a href="index.html">
+                    Acasa
+                </a>
+            </li>
+
+            <li>
+                <a class="active" href="Ocazii.Speciale.html">
+                    Ocazii Speciale
+                </a>
+            </li>
+
+            <li>
+                <a href="Catalog.html">
+                    Catalog
+                </a>
+            </li>
+
+            <li>
+                <a href="Livrare.html">
+                    Livrare
+                </a>
+            </li>
+
+            <li>
+                <a href="Contact.html">
+                    Contact
+                </a>
+            </li>
+
+        </ul>
+    </nav>
+
+</header>
+
+<main>
+
+<section class="special-title">
+
+    <h1>Ocazii Speciale</h1>
+
+    <p>
+        Aranjamente florale pentru momente de neuitat
+    </p>
+
+</section>
+
+<section class="special-cards">
+
+    <article class="special-card">
+
+        <img src="../assets/nunta.png" alt="Nunti">
+
+        <h2>Nunti</h2>
+
+        <p>
+            Aranjamente elegante pentru ziua cea mare
+        </p>
+
+       
+
+    </article>
+
+    <article class="special-card">
+
+        <img src="../assets/aniversari.png" alt="Aniversari">
+
+        <h2>Aniversari</h2>
+
+        <p>
+            Aranjamente florale pentru momente speciale
+        </p>
+
+        
+
+    </article>
+
+    <article class="special-card">
+
+        <img src="../assets/Sarbatori.png" alt="Sarbatori">
+
+        <h2>Sarbatori</h2>
+
+        <p>
+            Pentru fiecare sarbatoare facem buchetul perfect
+        </p>
+
+
+    </article>
+
+</section>
+
+<section class="recomandari">
+
+    <h2>➝ Recomandarile noastre ⟵</h2>
+
+    <div class="reco-images">
+
+        <img src="../assets/buchet.1.png" alt="Buchet">
+
+        <img src="../assets/buchet.2.png" alt="Buchet">
+
+        <img src="../assets/buchet.3.png" alt="Buchet">
+
+    </div>
+
+</section>
+
+</main>
+
+</body>
+</html>

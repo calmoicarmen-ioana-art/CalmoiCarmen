@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Catalog - Flora Elegance</title>
+<link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+<header>
+
+        <a href="index.html">
+            <img src="../assets/logo.png" class="logo" alt="Logo Flora Elegance">
+        </a>
+    
+        <nav>
+            <ul>
+    
+                <li>
+                    <a href="index.html">Acasa</a>
+                </li>
+    
+                <li>
+                    <a href="Ocazii.Speciale.html">Ocazii Speciale</a>
+                </li>
+    
+                <li>
+                    <a class="active" href="Catalog.html">Catalog</a>
+                </li>
+    
+                <li>
+                    <a href="Livrare.html">Livrare</a>
+                </li>
+    
+                <li>
+                    <a href="Contact.html">Contact</a>
+                </li>
+    
+            </ul>
+        </nav>
+</header>
+
+<section class="catalog-page">
+
+    <h1>Catalog</h1>
+    <p>Aranjamente florale</p>
+
+    <div class="catalog-layout">
+
+        <aside class="filter-box">
+
+            <h3>Filtrare</h3>
+
+            <label>Pret</label>
+
+            <input type="range" id="priceRange" min="50" max="500" value="500">
+
+            <div class="price-values">
+                <span>50 lei</span>
+                <span id="priceValue">500 lei</span>
+            </div>
+
+            <hr>
+
+            <label>Tip flori</label>
+
+            <div class="check-group">
+
+                <label><input type="checkbox" value="trandafiri"> Trandafiri</label>
+
+                <label><input type="checkbox" value="lalele"> Lalele</label>
+
+                <label><input type="checkbox" value="crizanteme"> Crizanteme</label>
+
+                <label><input type="checkbox" value="bujori"> Bujori</label>
+
+                <label><input type="checkbox" value="hortensii"> Hortensii</label>
+
+            </div>
+
+        </aside>
+
+        <div class="catalog-content">
+
+            <div class="sort-box">
+                <label>Sorteaza dupa</label>
+
+                <select id="sortSelect">
+                    <option value="popular">Popularitate</option>
+                    <option value="low">Pret crescator</option>
+                    <option value="high">Pret descrescator</option>
+                </select>
+            </div>
+
+            <div class="products" id="products">
+
+                <div class="product-card" data-price="180" data-type="trandafiri">
+                    <img src="../assets/buchet.4.png">
+                    <h4>Buchet de trandafiri</h4>
+                    <p>180 lei</p>
+                </div>
+
+                <div class="product-card" data-price="220" data-type="trandafiri">
+                    <img src="../assets/buchet.5.png">
+                    <h4>Buchet mix</h4>
+                    <p>220 lei</p>
+                </div>
+
+                <div class="product-card" data-price="160" data-type="bujori">
+                    <img src="../assets/buchet.6.png">
+                    <h4>Buchet elegant</h4>
+                    <p>160 lei</p>
+                </div>
+
+                <div class="product-card" data-price="250" data-type="trandafiri">
+                    <img src="../assets/buchet.7.png">
+                    <h4>Mix trandafiri</h4>
+                    <p>250 lei</p>
+                </div>
+
+                <div class="product-card" data-price="300" data-type="trandafiri">
+                    <img src="../assets/buchet.8.png">
+                    <h4>Trandafiri roz</h4>
+                    <p>300 lei</p>
+                </div>
+
+                <div class="product-card" data-price="280" data-type="hortensii">
+                    <img src="../assets/buchet.9.jpg">
+                    <h4>Aranjament delicat</h4>
+                    <p>280 lei</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<script>
+
+const range = document.getElementById("priceRange");
+const priceValue = document.getElementById("priceValue");
+const cards = document.querySelectorAll(".product-card");
+const checkboxes = document.querySelectorAll(".check-group input");
+const sortSelect = document.getElementById("sortSelect");
+const products = document.getElementById("products");
+
+function filterProducts(){
+
+    const maxPrice = parseInt(range.value);
+
+    priceValue.textContent = maxPrice + " lei";
+
+    const selectedTypes = [...checkboxes]
+    .filter(c=>c.checked)
+    .map(c=>c.value);
+
+    cards.forEach(card=>{
+
+        const price = parseInt(card.dataset.price);
+        const type = card.dataset.type;
+
+        let show = price <= maxPrice;
+
+        if(selectedTypes.length > 0){
+            show = show && selectedTypes.includes(type);
+        }
+
+        card.style.display = show ? "block" : "none";
+    });
+}
+
+function sortProducts(){
+
+    const items = [...products.children];
+
+    if(sortSelect.value==="low"){
+        items.sort((a,b)=>a.dataset.price-b.dataset.price);
+    }
+
+    if(sortSelect.value==="high"){
+        items.sort((a,b)=>b.dataset.price-a.dataset.price);
+    }
+
+    items.forEach(item=>products.appendChild(item));
+}
+
+range.addEventListener("input", filterProducts);
+
+checkboxes.forEach(box=>{
+    box.addEventListener("change", filterProducts);
+});
+
+sortSelect.addEventListener("change", sortProducts);
+
+filterProducts();
+
+</script>
+
+</body>
+</html>

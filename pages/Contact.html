@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ro">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact - Flora Elegance</title>
+
+<link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+<header>
+
+   <nav class="navbar">
+
+        <div class="logo">
+            <img src="../assets/logo.png" class="logo" alt="Logo Flora Elegance">
+        </div>
+
+        <ul>
+            <li><a href="index.html">Acasa</a></li>
+            <li><a href="Ocazii.Speciale.html">Ocazii Speciale</a></li>
+            <li><a href="Catalog.html">Catalog</a></li>
+            <li><a href="Livrare.html">Livrare</a></li>
+            <li><a class="active" href="contact.html">Contact</a></li>
+        </ul>
+
+    </nav>
+
+</header>
+
+
+<section class="contact-hero">
+    <div class="hero-text">
+        <h1>Contactează-ne</h1>
+        <p>Suntem aici pentru tine oricând</p>
+    </div>
+</section>
+
+
+<section class="contact-gallery">
+
+    <img src="../assets/flori10.webp" alt="Flori elegante">
+    <img src="../assets/flori11.jpg" alt="Buchet trandafiri">
+    <img src="../assets/flori12.jpg" alt="Aranjamente florale">
+
+</section>
+
+
+<section class="contact-prof">
+
+
+    <div class="contact-form-box">
+
+        <h2>Trimite un mesaj</h2>
+
+        <form onsubmit="return trimiteMesaj()">
+
+            <input type="text" placeholder="Nume" required>
+            <input type="email" placeholder="Email" required>
+
+            <textarea placeholder="Mesajul tău..." required></textarea>
+
+            <button type="submit">Trimite mesaj</button>
+
+        </form>
+
+    </div>
+
+    <div class="contact-image">
+        <img src="../assets/Florist.png" alt="Florărie Flora Elegance">
+    </div>
+
+</section>
+
+<script>
+function trimiteMesaj(){
+    alert("Mesaj trimis cu succes!");
+    return false;
+}
+</script>
+
+</body>
+</html>

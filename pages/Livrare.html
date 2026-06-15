@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Livrare - Flora Elegance</title>
+<link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar">
+    
+            <div class="logo-container">
+                <img src="../assets/logo.png" class="logo" alt="Logo Flora Elegance">
+            </div>
+    
+            <ul class="nav-links">
+                <li><a href="index.html">Acasă</a></li>
+                <li><a href="Ocazii.Speciale.html">Ocazii speciale</a></li>
+                <li><a href="Catalog.html">Catalog</a></li>
+                <li><a href="Livrare.html">Livrare</a></li>
+                <li><a href="Contact.html">Contact</a></li>
+            </ul>
+    
+        </nav>
+</header>
+
+<section class="livrare-hero">
+    <h1>Livrare rapidă și sigură</h1>
+    <p>Alege metoda de livrare potrivită pentru tine</p>
+</section>
+
+<section class="livrare-container">
+
+    <h2>Metode de livrare</h2>
+
+    <div class="livrare-optiuni">
+
+        <button class="livrare-btn" onclick="selectLivrare('Standard')">
+            🖳 Livrare Standard (1-2 zile)
+        </button>
+
+        <button class="livrare-btn" onclick="selectLivrare('Express')">
+            🖳Livrare Express (2-6 ore)
+        </button>
+
+        <button class="livrare-btn" onclick="selectLivrare('Ridicare')">
+            🖳  Ridicare personală
+        </button>
+
+    </div>
+
+    <h2>Date de livrare</h2>
+
+    <form class="livrare-form" onsubmit="return confirmareLivrare()">
+
+        <input type="text" placeholder="Nume complet" required>
+        <input type="text" placeholder="Adresă livrare" required>
+        <input type="tel" placeholder="Telefon" required>
+
+        <textarea placeholder="Mesaj pentru livrare (opțional)"></textarea>
+
+        <p id="selectat">Metoda aleasă: niciuna</p>
+
+        <button type="submit" class="submit-btn">Confirmă comanda</button>
+
+    </form>
+
+</section>
+
+<script>
+let metoda = "niciuna";
+
+function selectLivrare(tip){
+    metoda = tip;
+    document.getElementById("selectat").innerText = "Metoda aleasă: " + tip;
+}
+
+function confirmareLivrare(){
+    alert("Comanda a fost trimisă cu succes!\nMetodă: " + metoda);
+    return false;
+}
+</script>
+
+</body>
+</html> 
